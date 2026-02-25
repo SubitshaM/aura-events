@@ -1,3 +1,4 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -18,10 +19,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
-    background: rgba(255,255,255,0.05);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
 }
 
 .logo {
@@ -42,21 +44,45 @@ nav a:hover {
     color: #ffb400;
 }
 
-/* HERO */
+/* HERO SECTION WITH VIDEO */
 
 .hero {
-    height: 90vh;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(135deg, #1c1c1c, #111);
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
     padding: 20px;
 }
 
 .hero h1 {
     font-size: 48px;
-    max-width: 800px;
 }
 
 .hero span {
@@ -66,7 +92,7 @@ nav a:hover {
 .hero p {
     margin: 20px 0;
     font-size: 18px;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .btn {
@@ -114,7 +140,7 @@ nav a:hover {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
 }
 
 .card h2,
@@ -127,6 +153,8 @@ nav a:hover {
     transform: scale(1.03);
 }
 
+/* GRID SIZES */
+
 .large {
     grid-column: span 2;
 }
@@ -137,16 +165,6 @@ nav a:hover {
 
 .wide {
     grid-column: span 3;
-}
-
-.card h2 {
-    margin-bottom: 15px;
-    font-size: 20px;
-}
-
-.card p {
-    font-size: 14px;
-    opacity: 0.8;
 }
 
 /* CTA */
@@ -196,8 +214,10 @@ footer {
 }
 
 @media(max-width: 600px) {
+
     .navbar {
         flex-direction: column;
+        padding: 20px;
     }
 
     nav {
@@ -219,38 +239,9 @@ footer {
         font-size: 32px;
     }
 }
-/* HERO VIDEO */
 
-.hero {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
 
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: 1;
-}
 
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 2;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 3;
-    color: white;
-}
+    
+   
+   
