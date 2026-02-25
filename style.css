@@ -97,16 +97,34 @@ nav a:hover {
 }
 
 .card {
-    background: rgba(255,255,255,0.05);
+    position: relative;
     padding: 30px;
     border-radius: 25px;
-    backdrop-filter: blur(20px);
-    transition: 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 250px;
+    background-size: cover;
+    background-position: center;
+    transition: 0.4s ease;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+}
+
+.card h2,
+.card p {
+    position: relative;
+    z-index: 2;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    background: rgba(255,255,255,0.08);
+    transform: scale(1.03);
 }
 
 .large {
